@@ -9,3 +9,8 @@
  ::initialize-db
  (fn-traced [_ _]
    db/default-db))
+
+(re-frame/reg-event-db
+ ::name-change
+ (fn-traced [db [_ new-name]]
+   (assoc db/default-db :name new-name)))
