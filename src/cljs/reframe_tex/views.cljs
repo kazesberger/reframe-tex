@@ -4,8 +4,10 @@
    [reframe-tex.subs :as subs]))
 
 (defn demo-input []
+  (let [name (re-frame/subscribe [::subs/name])]
     [:input {:placeholder "your name goes here"
-             :type        "text"}])
+             :type        "text"
+             :value       @name}]))
 
 (defn main-panel []
   (let [name (re-frame/subscribe [::subs/name])]
